@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Essentials: The Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #073B4C;
+            position: relative; 
+            overflow-x: hidden; 
+        }
+        #particles-js {
+            position: fixed; /* Changed to fixed to stay in place */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; 
+            opacity: 0.6; 
+        }
+        main {
+            position: relative;
+            z-index: 1; 
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.01); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .agile-card-winner {
+             border-color: #06D6A0; 
+             box-shadow: 0 10px 25px -5px rgba(6, 214, 160, 0.35), 0 8px 10px -6px rgba(6, 214, 160, 0.25); 
+        }
+        .animated-line {
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .animated-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%; 
+            width: 100%;
+            height: 2px; 
+            background: linear-gradient(to right, transparent, #a7d9ef, transparent); 
+            animation: drawLine 2s linear infinite; 
+            transform: translateY(-50%);
+        }
+        @keyframes drawLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .line-red::after { background: linear-gradient(to right, transparent, rgba(255, 107, 107, 0.7), transparent); }
+        .line-yellow::after { background: linear-gradient(to right, transparent, rgba(255, 209, 102, 0.7), transparent); }
+        .line-green::after { background: linear-gradient(to right, transparent, rgba(6, 214, 160, 0.7), transparent); }
+
+        .timeline .z-20 {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .timeline .z-20:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 8px rgba(17, 138, 178, 0.3); 
+        }
+        .timeline .border-2-2 {
+            background: linear-gradient(to bottom, #a7d9ef 0%, #118AB2 50%, #a7d9ef 100%);
+            width: 6px; 
+            margin-left: -3px; 
+            animation: pulseLine 3s infinite alternate; 
+        }
+        @keyframes pulseLine {
+            0% { background-color: #a7d9ef; }
+            50% { background-color: #118AB2; }
+            100% { background-color: #a7d9ef; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="particles-js"></div>
+
+    <main class="container mx-auto px-4 py-12">
+
+        <section class="text-center mb-20" data-aos="fade-down">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4" style="color: #073B4C;">The Anatomy of a Product Manager</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ek safal product ke peeche ek Product Manager hota hai. Chaliye unki duniya ko visuals ke zariye samjhein.</p>
+        </section>
+
+        <section class="mb-20" data-aos="zoom-in-up">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-center mb-2">The Central Hub</h2>
+                <p class="text-center text-gray-600 mb-8">Ek PM ek 'Mini-CEO' ki tarah hota hai jo alag-alag teams ke beech pul ka kaam karta hai.</p>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="text-center p-4 rounded-lg bg-red-100 w-40">
+                         <i class="fas fa-code fa-4x mb-3" style="color: #FF6B6B;"></i>
+                        <h3 class="font-bold mt-2" style="color: #FF6B6B;">Engineering</h3>
+                    </div>
+                    <div class="hidden md:block w-16 h-px bg-gray-300 animated-line line-red"></div> 
+
+                    <div class="relative text-center p-6 rounded-full border-4 w-48 h-48 flex items-center justify-center transform transition duration-300 hover:scale-105" style="border-color: #118AB2;">
+                        <div>
+                            <i class="fas fa-user-tie fa-4x mb-3" style="color: #118AB2;"></i>
+                            <h3 class="font-bold text-xl mt-2" style="color: #118AB2;">Product Manager</h3>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-16 h-px bg-gray-300 animated-line line-yellow"></div> 
+
+                    <div class="text-center p-4 rounded-lg bg-yellow-100 w-40">
+                         <i class="fas fa-paint-brush fa-4x mb-3" style="color: #FFD166;"></i>
+                        <h3 class="font-bold mt-2" style="color: #FFD166;">Design (UX/UI)</h3>
+                    </div>
+                     <div class="hidden md:block w-16 h-px bg-gray-300 animated-line line-green"></div> 
+
+                    <div class="text-center p-4 rounded-lg bg-green-100 w-40">
+                        <i class="fas fa-briefcase fa-4x mb-3" style="color: #06D6A0;"></i>
+                        <h3 class="font-bold mt-2" style="color: #06D6A0;">Business</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20" data-aos="fade-right">
+             <h2 class="text-3xl font-bold text-center mb-2">The PM's Skill Toolkit</h2>
+             <p class="text-center text-gray-600 mb-8">Ek behtareen PM in chaar core skills ka perfect balance hota hai.</p>
+            <div class="card p-8 grid md:grid-cols-2 gap-8 items-center">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <div>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #FF6B6B;"></span><strong>Technical:</strong> Technology ki samajh.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #FFD166;"></span><strong>Business:</strong> Market aur revenue ki samajh.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #06D6A0;"></span><strong>Communication:</strong> Sabko saath lekar chalna.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #118AB2;"></span><strong>User Empathy:</strong> Customer ko samajhna.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20" data-aos="fade-left">
+            <h2 class="text-3xl font-bold text-center mb-2">The Product's Journey</h2>
+            <p class="text-center text-gray-600 mb-8">Har product ki ek life hoti hai, shuruwat se lekar ant tak.</p>
+            <div class="card p-8">
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="lifecycleChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-2" data-aos="fade-up">Building the Product: The Process</h2>
+            <p class="text-center text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">Software banane ke do mashhoor tareeke hain.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl" data-aos="zoom-in-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Waterfall 🐌</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Step-by-step process.</li>
+                        <li>Saari planning shuru mein.</li>
+                        <li>Badlaav karna mushkil.</li>
+                        <li>Launch ke baad feedback.</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 border-4 agile-card-winner transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95" data-aos="zoom-in-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Agile 🚀 (The Winner)</h3>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>Chhote-chhote cycles (sprints).</li>
+                        <li>Lagatar planning aur feedback.</li>
+                        <li>Badlaav karna aasaan.</li>
+                        <li>Har sprint ke baad sudhaar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-20" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center mb-2">Cracking the PM Interview</h2>
+            <p class="text-center text-gray-600 mb-8">Interviews mein in topics par sabse zyada focus hota hai.</p>
+            <div class="card p-8 grid md:grid-cols-2 gap-8 items-center">
+                 <div>
+                    <p class="text-lg text-gray-700 leading-relaxed">PM interviews aapki problem-solving, creativity, aur analytical soch ko parkhte hain. Sabse zyada dhyaan 'Product Sense' par diya jaata hai, jismein aapse naye products design karne ya maujooda products ko behtar banane ke liye kaha jaata hai.</p>
+                </div>
+                <div class="chart-container" style="height:350px;">
+                    <canvas id="interviewChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-2" data-aos="fade-up">The Path to Leadership</h2>
+            <p class="text-center text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">Ek PM ka career in padaavon se hokar guzarta hai.</p>
+            <div class="relative wrap overflow-hidden p-10 h-full">
+                
+                <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+                <div class="mb-8 flex justify-between items-center w-full right-timeline" data-aos="fade-left">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full hover:bg-blue-600 cursor-pointer">
+                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Associate PM</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek senior PM ke under kaam seekhna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline" data-aos="fade-right">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full hover:bg-blue-600 cursor-pointer">
+                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Product Manager</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek feature ya chhote product ko own karna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between items-center w-full right-timeline" data-aos="fade-left">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full hover:bg-blue-600 cursor-pointer">
+                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Senior PM</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek bade aur complex product ko manage karna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline" data-aos="fade-right">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full hover:bg-blue-600 cursor-pointer">
+                        <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Director/VP of Product</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Multiple products aur PMs ko lead karna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 text-gray-500">
+        <p>Visualized from "Product Management Essentials".</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 900, 
+            once: true,    
+            offset: 120,   
+        });
+
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#a7d9ef" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#cce7f5", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 3, "direction": "none", "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const VIBRANT_COLORS = { red: '#FF6B6B', yellow: '#FFD166', green: '#06D6A0', blue: '#118AB2', navy: '#073B4C' };
+            const tooltipTitleCallback = (tooltipItems) => tooltipItems[0].chart.data.labels[tooltipItems[0].dataIndex];
+            
+            new Chart(document.getElementById('skillsChart').getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Technical', 'Business', 'Communication', 'User Empathy'],
+                    datasets: [{ data: [25, 25, 25, 25], backgroundColor: [VIBRANT_COLORS.red, VIBRANT_COLORS.yellow, VIBRANT_COLORS.green, VIBRANT_COLORS.blue], borderWidth: 0 }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    cutout: '70%', 
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { title: tooltipTitleCallback } } },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1500,
+                        easing: 'easeOutBounce'
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('lifecycleChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Introduction', 'Growth', 'Maturity', 'Decline'],
+                    datasets: [{ 
+                        label: 'Market Adoption', 
+                        data: [10, 70, 100, 40], 
+                        fill: true, 
+                        borderColor: VIBRANT_COLORS.blue, 
+                        backgroundColor: 'rgba(17, 138, 178, 0.2)', 
+                        tension: 0.4, 
+                        pointBackgroundColor: VIBRANT_COLORS.blue, 
+                        pointRadius: 6, 
+                        pointHoverRadius: 9, 
+                        borderWidth: 3, 
+                        shadowBlur: 10,
+                        shadowColor: VIBRANT_COLORS.blue,
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    scales: { 
+                        y: { beginAtZero: true, grid: { display: false }, ticks: { display: false } }, 
+                        x: { grid: { display: false } } 
+                    }, 
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { title: tooltipTitleCallback } } },
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutCubic'
+                    }
+                }
+            });
+            
+            new Chart(document.getElementById('interviewChart').getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: ['Product Sense', 'Analytical', 'Technical', 'Behavioral'],
+                    datasets: [{ data: [40, 25, 15, 20], backgroundColor: [VIBRANT_COLORS.blue, VIBRANT_COLORS.green, VIBRANT_COLORS.red, VIBRANT_COLORS.yellow], borderWidth: 0 }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { 
+                        legend: { position: 'bottom' }, 
+                        tooltip: { callbacks: { title: tooltipTitleCallback } } 
+                    },
+                    hoverOffset: 15, // Slice pops out on hover
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true,
+                        duration: 1200,
+                        easing: 'easeOutExpo'
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
