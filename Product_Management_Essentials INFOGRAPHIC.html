@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Essentials: The Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Application Structure Plan: Is infographic ka structure ek top-to-bottom narrative flow follow karta hai, jo user ko Product Manager ke role ki journey par le jaata hai. Yeh 'The Anatomy of a PM' se shuru hota hai, fir unki zaroori skills, product ki journey, product banane ka process, technical knowledge, aur aakhir mein career path tak jaata hai. Yeh linear structure complex information ko step-by-step digest karne mein madad karta hai. Har section visually distinct hai aur ek core concept ko visualize karne par focus karta hai, jisse scroll karna engaging aur informative lagta hai. -->
+    <!-- Visualization & Content Choices: 1. PM's Role -> Goal: Organize -> Viz: HTML/CSS Flow Diagram -> Justification: Teams ke beech PM ke central connection ko visually dikhata hai. 2. Core Skills -> Goal: Compare -> Viz: Chart.js Donut Chart -> Justification: Skills ke balanced composition ko ek nazar mein dikhata hai. 3. Product Lifecycle -> Goal: Change -> Viz: Chart.js Area Chart -> Justification: Time ke saath adoption trend ko emphasize karta hai. 4. Agile vs Waterfall -> Goal: Compare -> Viz: HTML/CSS Comparison Table -> Justification: Dono methodologies ke core differences ko aamne-saamne rakhta hai. 5. Interview Focus -> Goal: Inform -> Viz: Chart.js Pie Chart -> Justification: Interview rounds ke weightage ko aasani se communicate karta hai. 6. Career Path -> Goal: Organize -> Viz: HTML/CSS Timeline -> Justification: Career progression ko step-by-step dikhata hai. Sabhi choices NO SVG/Mermaid rule ko follow karti hain. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #073B4C;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="container mx-auto px-4 py-12">
+
+        <section class="text-center mb-20">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4" style="color: #073B4C;">The Anatomy of a Product Manager</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ek safal product ke peeche ek Product Manager hota hai. Chaliye unki duniya ko visuals ke zariye samjhein.</p>
+        </section>
+
+        <section class="mb-20">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-center mb-2">The Central Hub</h2>
+                <p class="text-center text-gray-600 mb-8">Ek PM ek 'Mini-CEO' ki tarah hota hai jo alag-alag teams ke beech pul ka kaam karta hai.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="text-center p-4 rounded-lg bg-red-100 w-40">
+                        <span class="text-4xl">💻</span>
+                        <h3 class="font-bold mt-2" style="color: #FF6B6B;">Engineering</h3>
+                    </div>
+                    <div class="w-px md:w-16 h-16 md:h-px bg-gray-300"></div>
+                    <div class="relative text-center p-6 rounded-full border-4 w-48 h-48 flex items-center justify-center" style="border-color: #118AB2;">
+                        <div>
+                            <span class="text-5xl">👤</span>
+                            <h3 class="font-bold text-xl mt-2" style="color: #118AB2;">Product Manager</h3>
+                        </div>
+                    </div>
+                    <div class="w-px md:w-16 h-16 md:h-px bg-gray-300"></div>
+                     <div class="text-center p-4 rounded-lg bg-yellow-100 w-40">
+                        <span class="text-4xl">🎨</span>
+                        <h3 class="font-bold mt-2" style="color: #FFD166;">Design (UX/UI)</h3>
+                    </div>
+                     <div class="w-px md:w-16 h-16 md:h-px bg-gray-300"></div>
+                    <div class="text-center p-4 rounded-lg bg-green-100 w-40">
+                        <span class="text-4xl">📈</span>
+                        <h3 class="font-bold mt-2" style="color: #06D6A0;">Business</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+             <h2 class="text-3xl font-bold text-center mb-2">The PM's Skill Toolkit</h2>
+             <p class="text-center text-gray-600 mb-8">Ek behtareen PM in chaar core skills ka perfect balance hota hai.</p>
+            <div class="card p-8 grid md:grid-cols-2 gap-8 items-center">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <div>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #FF6B6B;"></span><strong>Technical:</strong> Technology ki samajh.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #FFD166;"></span><strong>Business:</strong> Market aur revenue ki samajh.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #06D6A0;"></span><strong>Communication:</strong> Sabko saath lekar chalna.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 rounded-full mr-3" style="background-color: #118AB2;"></span><strong>User Empathy:</strong> Customer ko samajhna.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-2">The Product's Journey</h2>
+            <p class="text-center text-gray-600 mb-8">Har product ki ek life hoti hai, shuruwat se lekar ant tak.</p>
+            <div class="card p-8">
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="lifecycleChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Building the Product: The Process</h2>
+            <p class="text-center text-gray-600 mb-8">Software banane ke do mashhoor tareeke hain.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Waterfall 🐌</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Step-by-step process.</li>
+                        <li>Saari planning shuru mein.</li>
+                        <li>Badlaav karna mushkil.</li>
+                        <li>Launch ke baad feedback.</li>
+                    </ul>
+                </div>
+                <div class="card p-8 border-4" style="border-color: #06D6A0;">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Agile 🚀 (The Winner)</h3>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>Chhote-chhote cycles (sprints).</li>
+                        <li>Lagatar planning aur feedback.</li>
+                        <li>Badlaav karna aasaan.</li>
+                        <li>Har sprint ke baad sudhaar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Cracking the PM Interview</h2>
+            <p class="text-center text-gray-600 mb-8">Interviews mein in topics par sabse zyada focus hota hai.</p>
+            <div class="card p-8 grid md:grid-cols-2 gap-8 items-center">
+                 <div>
+                    <p class="text-lg text-gray-700 leading-relaxed">PM interviews aapki problem-solving, creativity, aur analytical soch ko parkhte hain. Sabse zyada dhyaan 'Product Sense' par diya jaata hai, jismein aapse naye products design karne ya maujooda products ko behtar banane ke liye kaha jaata hai.</p>
+                </div>
+                <div class="chart-container" style="height:350px;">
+                    <canvas id="interviewChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-2">The Path to Leadership</h2>
+            <p class="text-center text-gray-600 mb-8">Ek PM ka career in padaavon se hokar guzarta hai.</p>
+            <div class="relative wrap overflow-hidden p-10 h-full">
+                <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Associate PM</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek senior PM ke under kaam seekhna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Product Manager</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek feature ya chhote product ko own karna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Senior PM</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Ek bade aur complex product ko manage karna.</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card">
+                        <h3 class="font-bold text-gray-800 text-xl">Director/VP of Product</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600">Multiple products aur PMs ko lead karna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 text-gray-500">
+        <p>Visualized from "Product Management Essentials".</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const VIBRANT_COLORS = {
+                red: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                navy: '#073B4C'
+            };
+
+            const tooltipTitleCallback = function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Technical', 'Business', 'Communication', 'User Empathy'],
+                    datasets: [{
+                        data: [25, 25, 25, 25],
+                        backgroundColor: [VIBRANT_COLORS.red, VIBRANT_COLORS.yellow, VIBRANT_COLORS.green, VIBRANT_COLORS.blue],
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+
+            const lifecycleCtx = document.getElementById('lifecycleChart').getContext('2d');
+            new Chart(lifecycleCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Introduction', 'Growth', 'Maturity', 'Decline'],
+                    datasets: [{
+                        label: 'Market Adoption',
+                        data: [10, 70, 100, 40],
+                        fill: true,
+                        borderColor: VIBRANT_COLORS.blue,
+                        backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                        tension: 0.4,
+                        pointBackgroundColor: VIBRANT_COLORS.blue,
+                        pointRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, grid: { display: false }, ticks: { display: false } },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+            
+            const interviewCtx = document.getElementById('interviewChart').getContext('2d');
+            new Chart(interviewCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Product Sense', 'Analytical', 'Technical', 'Behavioral'],
+                    datasets: [{
+                        data: [40, 25, 15, 20],
+                        backgroundColor: [VIBRANT_COLORS.blue, VIBRANT_COLORS.green, VIBRANT_COLORS.red, VIBRANT_COLORS.yellow],
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
